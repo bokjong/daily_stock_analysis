@@ -1,1 +1,15 @@
+name: Schedule Test
 
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print trigger information
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          date -u
